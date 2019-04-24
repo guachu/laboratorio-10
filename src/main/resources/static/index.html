@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2016 Pivotal Software, Inc.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>Pinturilo ome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+        <script src="/app.js"></script>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+
+    
+    <body>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="h1 text-center">Pinturilo ome</div>
+                    <center class="input">
+                        <label for="numberDibujo">Sala: </label>
+                        <input type="number" name="dibujo" id="numberDibujo">
+                        <button class="btn btn-default" onclick="app.init($('#numberDibujo').val())">Connect</button>
+                        <br>
+                        <label for="x">X:</label>
+                        <input id="x" name="x" type="number" placeholder="x position" required="true"/>
+                        <label for="y">Y:</label>
+                        <input id="y" name="y" type="number" placeholder="y position" required="true"/>        
+                        <button onclick="app.publishPoint($('#x').val(),$('#y').val())" class="btn btn-default">Send point</button>
+                        <br>
+                        <div class="col-md-8 col-md-offset-2">                    
+                            <canvas id="canvas" width="800" height="600"></canvas>
+                        </div>
+                    </center>
+                    
+                </div>                
+            </div>
+        </div>                
+    </body>
+</html>
